@@ -28,7 +28,6 @@ class Review extends React.Component {
 
     // GET Request to obtain all reviews
     componentDidMount() {
-        console.log(this.state.id);
         $.ajax({
             url: `/rooms/reviews/api`,
             method: 'GET',
@@ -60,7 +59,8 @@ class Review extends React.Component {
                 data: {id: this.state.id,
                        search: this.state.search
                       },
-                success: (data) => (
+                success: (data) => {
+                    data=JSON.parse(data);
                     this.setState({
                         back: 'Back to all reviews',
                         commentNone: data.length > 0 ? `` : `None of our guests have mentioned "<b>${this.state.search}</b>"`,
@@ -70,7 +70,7 @@ class Review extends React.Component {
                         isHidden: false,
                         isHiddenFooter: data.length > 0 ? false : true,
                     })
-                )
+                }   
             })
             search_input.value = '';
         }

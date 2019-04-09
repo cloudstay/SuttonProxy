@@ -10,13 +10,25 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
+        rules: [
+          {
             test: /\.jsx?/,
-            include: path.join(__dirname, './client/src'),
+            include: CLIENT_PATH,
             loader: 'babel-loader',
             query: {
-                presets: ['react', 'es2015']
-            }
-        }]
-    }
-}
+              presets: ['@babel/preset-react', '@babel/preset-env'],
+            },
+          },
+          {
+            test: /\.css$/,
+            include: CLIENT_PATH,
+            loader: ['style-loader', 'css-loader'],
+          },
+          {
+            test: /\.svg$/,
+            include: CLIENT_PATH,
+            loader: ['svg-inline-loader?removeTags'],
+          },
+        ],
+      },
+    };

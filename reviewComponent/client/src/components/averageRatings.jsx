@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "../../styleReview.module.css"
 const AverageRatings = (props) => {
     var length = props.reviews.length;
     var avgAccuracy = 0;
