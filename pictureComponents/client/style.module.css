@@ -15,7 +15,7 @@ button:focus {
   display: flex;
   width: 98.5%;
   flex-wrap: nowrap;
-  position: absolute;
+  position: relative;
   overflow: hidden;
   top: 80;
   left: 1;

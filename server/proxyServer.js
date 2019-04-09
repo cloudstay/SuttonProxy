@@ -25,9 +25,20 @@ app.use(bodyParser.json());
 //   });
 // });
 
-app.get('/rooms/apart/api', (req, response) => {
-  console.log(req.query.id);
-  request(`http://127.0.0.1:3003/rooms/apart/api/${req.query.id}`, (err, res, body)=> {
+// app.get('/rooms/apart/api', (req, response) => {
+//   console.log(req.query.id);
+//   request(`http://127.0.0.1:3003/rooms/apart/api/${req.query.id}`, (err, res, body)=> {
+//     if(err){
+//       response.status(404);
+//       response.end()
+//     }else {
+//       response.status(200);
+//       response.end(body)
+//     }
+//   });
+// });
+app.get('/rooms/reviews/api', (req, response) => {
+  request(`http://127.0.0.1:3004/rooms/reviews/api/?id=${req.query.id}`, (err, res, body)=> {
     if(err){
       response.status(404);
       response.end()
@@ -37,29 +48,17 @@ app.get('/rooms/apart/api', (req, response) => {
     }
   });
 });
-// app.get('/rooms/reviews/api', (req, response) => {
-//   request(`http://127.0.0.1:3004/rooms/reviews/api/?id=${req.query.id}`, (err, res, body)=> {
-//     if(err){
-//       response.status(404);
-//       response.end()
-//     }else {
-//       response.status(200);
-//       response.end(body)
-//     }
-//   });
-// });
-// app.get('/rooms/reviews/reviews', (req, response) => {
-//   request(`http://127.0.0.1:3004/rooms/reviews/reviews/?id=${req.query.id}`, (err, res, body)=> {
-//     if(err){
-//       response.status(404);
-//       response.end()
-//     }else {
-//       console.log(body)
-//       response.status(200);
-//       response.end(body)
-//     }
-//   });
-// });
+app.get('/rooms/reviews/reviews', (req, response) => {
+  request(`http://127.0.0.1:3004/rooms/reviews/reviews/?id=${req.query.id}`, (err, res, body)=> {
+    if(err){
+      response.status(404);
+      response.end()
+    }else {
+      response.status(200);
+      response.end(body)
+    }
+  });
+});
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {

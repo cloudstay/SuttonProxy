@@ -28,12 +28,13 @@ class Review extends React.Component {
 
     // GET Request to obtain all reviews
     componentDidMount() {
-        console.log(this.state.id)
+        console.log(this.state.id);
         $.ajax({
             url: `/rooms/reviews/api`,
             method: 'GET',
             data: {id: this.state.id},
             success: (data) => {
+                data=JSON.parse(data);
                 this.setState({
                     reviews: data,
                     fixed_reviews: data,

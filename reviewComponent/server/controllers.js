@@ -9,7 +9,7 @@ module.exports = {
                 if(err) {
                     console.log('Error');
                 }
-                res.json(result);
+                res.end(JSON.stringify(result));
             })
         }
     },
@@ -21,7 +21,7 @@ module.exports = {
                 if(err) {
                     console.log('Error');
                 }
-                res.json(result);
+                res.end(JSON.stringify(result));
             })
         }
     }
