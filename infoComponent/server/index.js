@@ -23,7 +23,7 @@ server.listen(port, () => {
 //create routes here
 
 
-server.get('/rooms/api/', (req, res) => {
+server.get('/rooms/info/api/', (req, res) => {
   console.log('a get request has been made');
   var id = req.query.id;
   db.getData(id, (error, data)=>{

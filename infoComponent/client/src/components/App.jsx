@@ -24,10 +24,11 @@ class App extends React.Component {
     componentDidMount(){
         var listing_Id=window.location.search.slice(4,7);
         $.ajax({
-            url: '/rooms/api/',
+            url: '/rooms/info/api/',
             type: 'GET',
             data: {id: listing_Id},
             success: (data) => {
+                data=JSON.parse(data);
                 this.setState({
                     listing: data[0],
                     relatedListings: data[0].relatedHomes,

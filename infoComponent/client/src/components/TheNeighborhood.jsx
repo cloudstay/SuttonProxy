@@ -1,8 +1,9 @@
 import React from 'react';
-import apiKeyFile from '../../../googleApiKey.js';
+// import apiKeyFile from '../../../googleApiKey.js';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-const apiKey = apiKeyFile.apiKey;
+// const apiKey = apiKeyFile.apiKey || {};
+const apiKey= {};
 
 class TheNeighborhood extends React.Component {
   constructor(props){
