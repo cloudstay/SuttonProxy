@@ -22,11 +22,15 @@ class App extends React.Component {
 
   getListing() {
     var listing_Id=window.location.search.slice(4,7);
-    axios.get(`/rooms/api/${listing_Id}`)
+    axios.get(`/rooms/api/`, {
+      params : {
+        id : listing_Id
+      }
+    })
     .then((response) => {
-      console.log('send a get request to the server', response.data);
+      console.log('send a get request to the server',typeof JSON.parse(response.data[0]));
       this.setState({
-        listings: response.data
+        listings: JSON.parse(response.data[0])
       })
     })
     .catch((error) => {

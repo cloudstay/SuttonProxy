@@ -87,7 +87,8 @@ class PictureContainer extends React.Component {
       url: '/rooms/api',
       data: { id: roomID },
       success: (photoArray) => {
-        callback(null, JSON.parse(photoArray));
+        console.log(typeof JSON.parse(JSON.parse(photoArray)[1]));
+        callback(null, JSON.parse(JSON.parse(photoArray)[1]));
       },
       error: (err) => {
         callback(err);

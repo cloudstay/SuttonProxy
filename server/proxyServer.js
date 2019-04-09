@@ -15,16 +15,24 @@ app.use(bodyParser.json());
 
 
 app.get('/rooms/api', (req, response) => {
-
-  request('http://127.0.0.1:3006/rooms/api/?id=100', (err, res, body)=> {
+  request(`http://127.0.0.1:3006/rooms/api/?id=${req.query.id}`, (err, res, body1)=> {
     if(err){
       response.status(404);
       response.end()
     }else {
-      response.status(200);
-      response.end(body);
+      request(`http://127.0.0.1:3003/rooms/api/${req.query.id}`, (err, res, body)=> {
+      if(err){
+        response.status(404);
+        response.end()
+      }else {
+        response.status(200);
+        response.end(JSON.stringify([body,body1]));
+      }
+  })
     }
   })
+
+  
 });
 
 if (process.env.NODE_ENV !== 'test') {
