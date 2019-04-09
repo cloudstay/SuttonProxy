@@ -7,11 +7,14 @@
   <body>
     <div id="appHook">Hello from proxy</div>
     <div id="app"></div>
+    <div id="review"></div>
     <script  src="http://localhost:3006/rooms/bundle.js"></script>
     <script  src="http://localhost:3003/rooms/bundle.js"></script>
+    <script  src="http://localhost:3004/rooms/bundle.js"></script>
     <script>
       ReactDOM.render(<Picture />, document.getElementById('appHook'));
       ReactDOM.render(<App />, document.getElementById('app'));
+      ReactDOM.render(<Review />, document.getElementById('review'));
     </script>
   </body>
   

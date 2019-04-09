@@ -84,11 +84,10 @@ class PictureContainer extends React.Component {
     const roomID = window.location.search.slice(4, 7);
     $.ajax({
       type: 'GET',
-      url: '/rooms/api',
+      url: '/rooms/photos/api',
       data: { id: roomID },
       success: (photoArray) => {
-        console.log(typeof JSON.parse(JSON.parse(photoArray)[1]));
-        callback(null, JSON.parse(JSON.parse(photoArray)[1]));
+        callback(null, JSON.parse(photoArray));
       },
       error: (err) => {
         callback(err);

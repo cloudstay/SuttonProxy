@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 import AverageRatings from './averageRatings.jsx';
 import ReviewList from './reviewList.jsx';
 
-class App extends React.Component {
+class Review extends React.Component {
     constructor(props) {
         super(props)
 
@@ -12,7 +12,7 @@ class App extends React.Component {
             back: '',
             commentNone: '',
             commentFound: '',
-            id: 188,
+            id: window.location.search.slice(4,7),
             length: 0,
             reviews: [],
             fixed_reviews: [],
@@ -28,11 +28,13 @@ class App extends React.Component {
 
     // GET Request to obtain all reviews
     componentDidMount() {
+        console.log(this.state.id)
         $.ajax({
-            url: `/rooms/api`,
+            url: `/rooms/reviews/api`,
             method: 'GET',
             data: {id: this.state.id},
             success: (data) => {
+                data=JSON.parse(data)
                 this.setState({
                     reviews: data,
                     fixed_reviews: data,
@@ -53,7 +55,7 @@ class App extends React.Component {
     handleSubmit(e) {
         if(e.keyCode === 13 && e.shiftKey === false) {
             $.ajax({
-                url: `/rooms/reviews`,
+                url: `/rooms/reviews/reviews`,
                 method: 'GET',
                 data: {id: this.state.id,
                        search: this.state.search
@@ -205,4 +207,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Review;

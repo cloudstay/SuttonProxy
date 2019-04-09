@@ -1,3 +1,3 @@
-import App from './components/app.jsx';
+import Review from './components/Review.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Review />, document.getElementById('app'));
