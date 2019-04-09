@@ -1,0 +1,6 @@
+
+
+.proxyContainer{
+  display: flex;
+  flex-direction: column;
+}

@@ -3,18 +3,23 @@
   <head>
       <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
       <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+      <link rel="stylesheet" href="proxyStyles.css">
   </head>
   <body>
-    <div id="appHook">Hello from proxy</div>
-    <div id="app"></div>
-    <div id="review"></div>
-    <script  src="http://localhost:3006/rooms/bundle.js"></script>
+    <div class="proxyContainer">
+        <div id="appHook">Hello from proxy</div>
+        <div id="app"></div>
+        <div id="review"></div>
+    </div>
+    <!-- <script  type="text/javascript" src="http://localhost:3006/rooms/bundle.js"></script>
+    <script type="text/svg" src="http://localhost:3006/rooms/svg/share.svg"></script> -->
     <script  src="http://localhost:3003/rooms/bundle.js"></script>
-    <script  src="http://localhost:3004/rooms/bundle.js"></script>
+    <script type="text/css" src="http://localhost:3003/rooms/styles.css"></script>
+    <!-- <script  src="http://localhost:3004/rooms/bundle.js"></script> -->
     <script>
-      ReactDOM.render(<Picture />, document.getElementById('appHook'));
+      // ReactDOM.render(<Picture />, document.getElementById('appHook'));
       ReactDOM.render(<App />, document.getElementById('app'));
-      ReactDOM.render(<Review />, document.getElementById('review'));
+      // ReactDOM.render(<Review />, document.getElementById('review'));
     </script>
   </body>
   

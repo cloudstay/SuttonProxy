@@ -34,7 +34,6 @@ class Review extends React.Component {
             method: 'GET',
             data: {id: this.state.id},
             success: (data) => {
-                data=JSON.parse(data)
                 this.setState({
                     reviews: data,
                     fixed_reviews: data,
