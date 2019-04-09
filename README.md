@@ -18,6 +18,11 @@
 ## Usage
 
 > Some usage instructions
+for each component run
+-npm install
+-npm run seedDB
+-npm run build
+-npm run start
 
 ## Requirements
 

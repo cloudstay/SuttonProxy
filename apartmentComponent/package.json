@@ -1,0 +1,72 @@
+{
+  "name": "listing-component",
+  "version": "",
+  "description": "",
+  "author": "",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "seedDB": "node database/seedData.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.3.1",
+    "cors": "^2.8.5",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "express": "^4.16.4",
+    "i": "^0.3.6",
+    "jquery": "^3.3.1",
+    "nodemon": "^1.18.10",
+    "npm": "^6.9.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-fontawesome": "^1.6.1",
+    "react-modal": "^3.8.1",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "request": "^2.88.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.6.0",
+    "babel-loader": "^7.1.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "eslint-config-airbnb-standard": "^3.0.1",
+    "faker": "^4.1.0",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.6.0",
+    "mongodb": "^3.2.2",
+    "mongoose": "^5.4.20",
+    "puppeteer": "^1.13.0",
+    "puppeteer-core": "^1.13.0",
+    "redux-devtools": "^3.5.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "setupFiles": [
+      "<rootDir>/client/setupTests.js"
+    ]
+  }
+}

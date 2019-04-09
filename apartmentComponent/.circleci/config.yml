@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - amenities
+    working_directory: ~/server
+    # Specify a Docker image
+    docker:
+      # The primary container is an instance of the first image listed. The job's commands run in this container.
+      - image: circleci/node:8.15
+      # The secondary container is an instance of the second listed image which is run in a common network where ports exposed on the primary container are available on localhost.
+      - image: mongo:4.0.3
+    steps:
+      - checkout
+      # Restores a cache
+      # - restore_cache:
+      #     key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      # Generates and stores a cache of a file
+      # - save_cache:
+      #     key: dependency-cache-{{ checksum "package.json" }}
+      #     paths:
+      #       - node_modules
+      # run tests!
+      - run:
+          name: Test
+          command: npm test
+
