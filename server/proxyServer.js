@@ -1,11 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const getDB = require('../database/mongoDB/getMongoDB.js');
-
+const request = require("request");
 const app = express();
 
 
-const port = process.env.PORT || 3006;
+const port = 3000;
 
 // app set at localhost:3006/rooms?id=XXX
 app.use('/rooms/', express.static('public'));
@@ -15,17 +14,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-// get request based on room number
-app.get('/rooms/api', (req, res) => {
-  getDB.getDBcollection(req.query.id, (err, photoDocuments) => {
-    if (err) {
-      res.status(404);
-      res.end();
-    } else {
-      res.status(200);
-      res.end(JSON.stringify(photoDocuments));
+app.get('/rooms/api', (req, response) => {
+
+  request('http://127.0.0.1:3006/rooms/api/?id=100', (err, res, body)=> {
+    if(err){
+      response.status(404);
+      response.end()
+    }else {
+      response.status(200);
+      response.end(body);
     }
-  });
+  })
 });
 
 if (process.env.NODE_ENV !== 'test') {
