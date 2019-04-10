@@ -478,7 +478,8 @@ img {
 }
 
 .left-button{
-  position: absolute;
+  position: relative;
+  right: 50px;
   height: 40px;
   width: 40px;
   display: inline-block;
@@ -487,7 +488,9 @@ img {
   background-position-x: 50%;
   background-position-y: 50%;
   background-repeat: no-repeat;
+  background-color: #ffffff;
   padding: 20px;
+  border: none;
 }
 
 .right-button-container{
@@ -501,7 +504,8 @@ img {
 }
 
 .right-button{
-  position: absolute;
+  position: relative;
+  left: 50px;
   height: 40px;
   width: 40px;
   display: inline-block;
@@ -510,7 +514,9 @@ img {
   background-position-x: 50%;
   background-position-y: 50%;
   background-repeat: no-repeat;
+  background-color: #ffffff;
   padding: 20px;
+  border: none;
 }
 
 .info {

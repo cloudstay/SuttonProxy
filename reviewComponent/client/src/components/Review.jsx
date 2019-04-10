@@ -61,6 +61,7 @@ class Review extends React.Component {
                        search: this.state.search
                       },
                 success: (data) => {
+                    data=JSON.parse(data);
                     this.setState({
                         back: 'Back to all reviews',
                         commentNone: data.length > 0 ? `` : `None of our guests have mentioned "<b>${this.state.search}</b>"`,

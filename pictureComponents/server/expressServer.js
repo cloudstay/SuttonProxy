@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const getDB = require('../database/mongoDB/getMongoDB.js');
 
 const app = express();
@@ -13,7 +14,7 @@ app.use((req, res, next) => {
 })
 
 // app set at localhost:3006/rooms?id=XXX
-app.use('/rooms/:id', express.static('public'));
+app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 
 // use of body parser
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 
 // get request based on room number
 app.get('/api/rooms/:id/photos', (req, res) => {
+  console.log(path.join(__dirname+'../public'));
   getDB.getDBcollection(req.params.id, (err, photoDocuments) => {
     if (err) {
       res.status(404);

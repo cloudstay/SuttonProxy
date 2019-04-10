@@ -16,7 +16,7 @@ module.exports = {
     reviews: {
         get: function(req, res) {
             var params = [req.params.id, req.query.search];
-
+            console.log(params);
             models.reviews.get(params, function(err, result) {
                 if(err) {
                     console.log('Error');

@@ -51,13 +51,13 @@ class Amenities extends React.Component {
           amenitiesArray.unshift(key)
         } else {
           amenitiesArray.push(key)
-          console.log("amenities ", amenitiesArray)
+          // console.log("amenities ", amenitiesArray)
         }
       }
     }
 
     let amenitiesElements = amenitiesArray && amenitiesArray.slice(0, 4).map((item, index) => {
-      console.log("item => ", item)
+      // console.log("item => ", item)
       return (
         <div className="amenity-name" key={index}>
           <img className="amenity-icon" src={`https://s3-us-west-1.amazonaws.com/staycloudphotobucket/svg/${item}.svg`}></img>

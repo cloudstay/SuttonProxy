@@ -1,12 +1,13 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
+const path = require("path");
 const port = 3001;
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 
 
-server.use('/rooms/:id', express.static('./public'));
+server.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({
   extended: true
