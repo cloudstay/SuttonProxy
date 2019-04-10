@@ -42,19 +42,31 @@ class Amenities extends React.Component {
 
   render() {
     let amenities = this.props.amenities;
-    console.log('Amenities are: ', amenities);
-
+    // console.log("amenities ", amenities)
     let amenitiesArray = [];
-
     for (let key in amenities) {
+      // let newKey = key.split('_').join(' ');
       if(key !== '_id'){
         if(amenities[key]) {
-          amenitiesArray.unshift(<div key={uuidv4()}>{key}</div>)
+          amenitiesArray.unshift(key)
         } else {
-          amenitiesArray.push(<div key={uuidv4()}><s>{key}</s></div>)
+          amenitiesArray.push(key)
+          console.log("amenities ", amenitiesArray)
         }
       }
     }
+
+    let amenitiesElements = amenitiesArray && amenitiesArray.slice(0, 4).map((item, index) => {
+      console.log("item => ", item)
+      return (
+        <div className="amenity-name" key={index}>
+          <img className="amenity-icon" src={`https://s3-us-west-1.amazonaws.com/staycloudphotobucket/svg/${item}.svg`}></img>
+          <span className="amenity">{item.split('_').join(' ')}</span>
+        </div>
+      )
+    })
+
+
     return (
         <div className="listing-amenities">
           <div style={{marginBottom: 0}}>
@@ -67,11 +79,7 @@ class Amenities extends React.Component {
               <div className="amenities-container">
                 <div style={{marginBottom: 16}}>
                   <div className="listing-amenities_wrapper">
-                    {amenitiesArray && amenitiesArray.slice(0, 4).map((item, index) =>
-                      <div className="amenity-name" key={index}>
-                        <span className="amenity">{item}</span>
-                      </div>
-                    )}
+                    {amenitiesElements}
                   </div>
                 </div>
               </div>
@@ -95,7 +103,7 @@ class Amenities extends React.Component {
                 </div>
                 <h1 className="amenities-header">Amenities</h1>
                   {amenitiesArray.map((item, index) =>
-                    <div className="listing-amenities-detail" key={index}>{item}</div>
+                    <div className="listing-amenities-detail" key={index}>{item.split('_').join(' ')}</div>
                 )}
               </Modal>
           </div>
@@ -109,4 +117,3 @@ class Amenities extends React.Component {
 }
 
 export default Amenities;
-

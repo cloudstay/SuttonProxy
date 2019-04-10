@@ -12,7 +12,7 @@ button:focus {
 
 .flexContainer {
   display: flex;
-  width: 98.5%;
+  width: 99.5%;
   flex-wrap: nowrap;
   position: relative;
   overflow: hidden;
@@ -99,7 +99,7 @@ button:focus {
   top: 24px;
 }
 
-.button {
+.photobutton {
   display: flex;
   justify-content: space-evenly;
   height: 36px;
