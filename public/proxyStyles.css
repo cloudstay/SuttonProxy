@@ -4,3 +4,16 @@
   display: flex;
   flex-direction: column;
 }
+
+.underPhoto {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  display: inline;
+  font-size: 15px;
+  color: #484848;
+  font-weight: 350;
+  line-height: 1.50em;
+  display: table-cell;
+  padding-left: 120px;
+  padding-right: 120px;
+  vertical-align: top;
+}

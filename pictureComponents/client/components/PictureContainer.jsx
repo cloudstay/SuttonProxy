@@ -100,12 +100,12 @@ class PictureContainer extends React.Component {
     this.setState({ currentPhoto: this.state.photos[photoID] });
     this.setState({ photoCarousel: true });
     this.setState({ currentPhotoIndex: photoID });
-    $('body').css('background-color', '262626');
+    $('#photoToggle').css('display', 'none');
   }
 
   returnToMainPage() {
     this.setState({ photoCarousel: false });
-    $('body').css('background-color', 'fff');
+    $('#photoToggle').css('display', 'flex');
   }
 
   changePhotoCarMainPhoto(photoID) {

@@ -25,7 +25,7 @@
     "server": "nodemon ./server/expressServer.js",
     "test": " jest",
     "testWatch": "jest --watch",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js --watch",
     "start": "nodemon ./server/expressServer.js"
   },
   "dependencies": {
