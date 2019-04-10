@@ -3,8 +3,8 @@ const models = require('./models');
 module.exports = {
     rooms: {
         get: function(req,res) {
-            var params = req.query.id;
-       
+            var params = req.params.id;
+            console.log(params)
             models.rooms.get(params, function(err, result) {
                 if(err) {
                     console.log('Error');
@@ -15,7 +15,7 @@ module.exports = {
     },
     reviews: {
         get: function(req, res) {
-            var params = [req.query.id, req.query.search];
+            var params = [req.params.id, req.query.search];
 
             models.reviews.get(params, function(err, result) {
                 if(err) {

@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({
     extended: true,
 }))
 
-app.use('/rooms', express.static('public'));
+app.use('/rooms/:id', express.static('public'));
 
-app.use('/rooms', router);
+app.use('/api/', router);
 
 app.listen(port, function() {
     console.log(`Listening on port: ${port}`);

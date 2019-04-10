@@ -42,7 +42,7 @@ class PictureContainer extends React.Component {
   componentDidMount() {
     this.getPhotos((err, photos) => {
       if (err) {
-        window.alert('Error photos not found');
+        console.log('Error photos not found');
       } else {
         this.setState({ photos });
         this.setState({ currentPhoto: photos[0] });
@@ -81,11 +81,10 @@ class PictureContainer extends React.Component {
   }
 
   getPhotos(callback) {
-    const roomID = window.location.search.slice(4, 7);
+    const roomID = window.location.pathname.split('/')[2];
     $.ajax({
       type: 'GET',
-      url: '/rooms/photos/api',
-      data: { id: roomID },
+      url: `/api/rooms/${roomID}/photos`,
       success: (photoArray) => {
         callback(null, JSON.parse(photoArray));
       },
@@ -101,11 +100,13 @@ class PictureContainer extends React.Component {
     this.setState({ photoCarousel: true });
     this.setState({ currentPhotoIndex: photoID });
     $('#photoToggle').css('display', 'none');
+    $('body').css('background-color', 'rgb(38, 38, 38)');
   }
 
   returnToMainPage() {
     this.setState({ photoCarousel: false });
     $('#photoToggle').css('display', 'flex');
+    $('body').css('background-color', '#fff');
   }
 
   changePhotoCarMainPhoto(photoID) {

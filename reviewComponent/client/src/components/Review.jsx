@@ -28,11 +28,11 @@ class Review extends React.Component {
 
     // GET Request to obtain all reviews
     componentDidMount() {
+        const roomID = window.location.pathname.split('/')[2];
         $.ajax({
-            url: `/rooms/reviews/api`,
-            method: 'GET',
-            data: {id: this.state.id},
-            success: (data) => {
+          type: 'GET',
+          url: `/api/rooms/${roomID}/reviews`,
+          success: (data) => {
                 data=JSON.parse(data);
                 this.setState({
                     reviews: data,
@@ -52,15 +52,15 @@ class Review extends React.Component {
 
     // GET Request to obtain reviews containing filter word
     handleSubmit(e) {
+        const roomID = window.location.pathname.split('/')[2];
         if(e.keyCode === 13 && e.shiftKey === false) {
             $.ajax({
-                url: `/rooms/reviews/reviews`,
+                url: `/api/rooms/${roomID}/searchReviews/`,
                 method: 'GET',
-                data: {id: this.state.id,
+                data: {
                        search: this.state.search
                       },
                 success: (data) => {
-                    data=JSON.parse(data);
                     this.setState({
                         back: 'Back to all reviews',
                         commentNone: data.length > 0 ? `` : `None of our guests have mentioned "<b>${this.state.search}</b>"`,
