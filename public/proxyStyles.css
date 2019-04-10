@@ -1,5 +1,9 @@
 
-
+.logo{
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+}
 .proxyContainer{
   display: flex;
   flex-direction: column;

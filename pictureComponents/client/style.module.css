@@ -16,7 +16,6 @@ button:focus {
   flex-wrap: nowrap;
   position: relative;
   overflow: hidden;
-  top: 80px;
   left: 1px;
   border-style: solid;
   border-color: #484848;

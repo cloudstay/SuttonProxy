@@ -100,12 +100,14 @@ class PictureContainer extends React.Component {
     this.setState({ photoCarousel: true });
     this.setState({ currentPhotoIndex: photoID });
     $('#photoToggle').css('display', 'none');
+    $('.logo').css('display', 'none');
     $('body').css('background-color', 'rgb(38, 38, 38)');
   }
 
   returnToMainPage() {
     this.setState({ photoCarousel: false });
     $('#photoToggle').css('display', 'flex');
+    $('.logo').css('display', 'flex');
     $('body').css('background-color', '#fff');
   }
 
