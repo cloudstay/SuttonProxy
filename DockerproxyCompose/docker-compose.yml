@@ -1,0 +1,53 @@
+version: "3.0"
+
+services:
+  proxyserver:
+    build: ../
+    depends_on:
+      - 'picseed'
+      - 'piccont'
+      - 'review'
+      - 'info'
+      - 'listings'
+    ports:
+        - '3000:3000'
+  piccont:
+    image: suco3693/cloudstaypicimg
+    depends_on:
+      - 'cloudstaypicdb'
+    ports:
+      - '3006:3006'
+  picseed:
+    image: suco3693/cloudstaypicimg
+    depends_on:
+      - 'cloudstaypicdb'
+    command: sh -c 'npm run seed'
+  cloudstaypicdb:
+    image: mongo:latest
+  info:
+    image: anthonyriggi/info:v1
+    depends_on:
+     - 'infodatabase'
+    ports:
+     - '3001:3001'
+  infodatabase:
+    image: mongo:latest
+  review:
+    image: annap23/reviews:version2
+    depends_on:
+     - 'reviewdatabase'
+    ports:
+     - '3004:3004'
+  reviewdatabase:
+    image: mongo:latest
+  listings:
+    image: jmjjeena/listings:version1 
+    depends_on:
+      - 'listingdatabase'
+    ports:
+      - '3003:3003'
+
+  listingdatabase:
+    image: mongo:latest
+  
+
