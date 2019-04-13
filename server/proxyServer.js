@@ -26,7 +26,7 @@ app.get('/api/rooms/:id/photos', (req, response) => {
 });
 
 app.get('/api/rooms/:id/apart/', (req, response) => {
-  request(`http://listings:3003/api/rooms/${req.params.id}/apart`, (err, res, body)=> {
+  request(`http://listings:3003/api/rooms/${req.params.id}/listing`, (err, res, body)=> {
     if(err){
       response.status(404);
       response.end()
