@@ -2,47 +2,8 @@ version: "3.0"
 
 services:
   proxyserver:
-    image: suco3693/proxyserver:version2
-    depends_on:
-      - 'piccont'
-      - 'info'
-      - 'listings'
-      - 'review'
+    build: ../
+
     ports:
         - '80:3000'
-  piccont:
-    image: suco3693/cloudstaypicimg:version2
-    depends_on:
-      - 'cloudstaypicdb'
-    ports:
-      - '3006:3006'
-  cloudstaypicdb:
-    image: mongo:latest
-  info:
-    image: anthonyriggi/info:v1
-    depends_on:
-      - 'infodatabase'
-    ports:
-      - '3001:3001'
 
-  infodatabase:
-    image: mongo:latest
-  
-  listings:
-    image: jmjjeena/listings:v2
-    depends_on:
-      - 'listingdatabase'
-    ports:
-      - '3003:3003'
-
-  listingdatabase:
-    image: mongo:latest
-
-  review:
-    image: annap23/reviews:version3
-    depends_on: 
-      - 'reviewdatabase'
-    ports: 
-      - '3004:3004'
-  reviewdatabase: 
-    image: mongo:latest
