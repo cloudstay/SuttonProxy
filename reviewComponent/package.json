@@ -12,7 +12,8 @@
     "build": "webpack -d --watch",
     "start": "nodemon server/server.js",
     "seedDB": "node server/db/seed.js",
-    "test": "jest"
+    "test": "jest",
+    "prodbuild": "webpack --mode=production"
   },
   "dependencies": {
     "@babel/preset-env": "^7.4.2",
