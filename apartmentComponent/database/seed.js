@@ -68,7 +68,7 @@ let createListing = () => {
       }
     })
   }
- console.log('data seeded');
+//  console.log('data seeded');
 }
 
 const generateSleepingArrangements = (no_of_beds) => {

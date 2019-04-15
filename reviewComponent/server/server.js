@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require("path");
 const morgan = require('morgan');
 const router = require('./routes');
 
@@ -16,9 +17,9 @@ app.use(bodyParser.urlencoded({
     extended: true,
 }))
 
-app.use('/rooms', express.static('public'));
+app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 
-app.use('/rooms', router);
+app.use('/api/', router);
 
 app.listen(port, function() {
     console.log(`Listening on port: ${port}`);

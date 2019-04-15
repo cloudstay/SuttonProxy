@@ -1,0 +1,309 @@
+/* Base Container Components */
+body{
+  background-color: #ffffff;
+  margin: 0;
+}
+input:focus {
+  outline: 0 !important;
+}
+button:focus {
+  outline: 0 !important;
+}
+
+.flexContainer {
+  display: flex;
+  width: 99.5%;
+  flex-wrap: nowrap;
+  position: relative;
+  overflow: hidden;
+  left: 1px;
+  border-style: solid;
+  border-color: #484848;
+  border-width: 1px;
+}
+
+
+/* Picture Components */
+
+.mainPicture {
+ flex-grow: 2;
+ width: 50%;
+ height: 590px;
+ border-right: #484848;
+ border-style: solid;
+ border-color: #484848;
+ border-width: 1px;
+ overflow: hidden;
+}
+
+.photoSize {
+  width: 100%;
+  transition: -ms-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s, -webkit-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s, transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s, opacity 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s !important;
+}
+
+
+.photoBorder {
+  border-style: solid;
+  border-color: #484848;
+  border-width: 1px;
+}
+
+.topPhoto{
+  border-bottom: 0cm
+}
+
+.secondPics {
+  flex-grow: 1;
+  width: 24.5%;
+}
+.endPics {
+  flex-grow: 1;
+  width: 24.5%;
+}
+
+.dualPicContainer{
+  height: 50%;
+  overflow: hidden;
+}
+
+/* Photo Hover Events */
+
+.flexContainer:hover > .hoverHelper > .darken:not(:hover){
+  filter: brightness(70%);
+}
+.photo0:hover{
+  transform: scale(1.05);
+}
+
+.photo1:hover{
+  transform: scale(1.05);
+}
+.photo2:hover{
+  transform: scale(1.05);
+}
+.photo3:hover{
+  transform: scale(1.05);
+}
+.photo4:hover{
+  transform: scale(1.05);
+}
+/* MultiPic Button Components */
+
+.topButtonContainer{
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.photobutton {
+  display: flex;
+  justify-content: space-evenly;
+  height: 36px;
+  background: #ffffff;
+  color: #484848;
+  border-radius: 4px;
+  border: none;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.saveButton {
+  width: 91px;
+}
+.buttonIcon {
+  position: relative;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
+  color: #484848;
+}
+.sharePic {
+  top: 3px;
+}
+
+.shareButton {
+  width: 97px;
+}
+
+.buttonWriting{
+  color: #484848;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.viewPicButton {
+  display: flex;
+  width: 113px;
+  position: absolute;
+  align-content: center;
+  justify-content: center;
+  right: 24px;
+  bottom: 24px;
+}
+
+/* Single Picture Buttons */
+
+.singleIconButton {
+  background-color :rgba(201, 76, 76, 0.00);
+  border: none;
+}
+.singleButtonImg{
+  filter: invert(90%);
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Photo Carousel  */
+
+.pcExitContainer{
+  display: flex;
+  width: 84px;
+  height: 52px;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.pcExitButton{
+  position: relative;
+  width: 28px;
+  top:5px;
+  height: 28px;
+  margin: auto;
+  filter: invert(100%);
+}
+
+.pcCurrentPhotoBox {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 86px;
+  height: 72%;
+  width: 100%;
+}
+
+.pcCurrentPhoto {
+  display: block;
+  height: 96%;
+}
+
+.pcButton{
+  position: absolute;
+  display: flex;
+  align-content: center;
+  top: -8px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+/* Build off of .pcButton */
+.pcBack{
+  left: 0px;
+}
+.pcForward {
+  right: 0px;
+}
+
+.pcBackImg {
+  position: relative;
+  left: 0px;
+  top: 2px;
+  filter: invert(100%);
+}
+
+.pcForwardImg {
+  position: relative;
+  right: 0px;
+  top: 2px;
+  filter: invert(100%);
+}
+
+.pcPhotoSlider{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.pcSliderContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: center;
+  position: absolute;
+  top: 0px;
+  height: 73vh;
+  width: 93vh;
+}
+
+.pcUnderSliderContainer{
+  position: relative;
+  left: -35.5px;
+  transition: -ms-transform 0.2s ease-out 0s, -webkit-transform 0.2s ease-out 0s, transform 0.2s ease-out 0s !important;
+}
+.pcUnderPhoto {
+  display: flex;
+  justify-content: space-between;
+  width: 110%;
+}
+.pcText {
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  line-height: 20.02px;
+  word-wrap: break-word;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+.pcPhotoToggleContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 110px;
+}
+.pcPhotoToggleImg{
+  width: 10px;
+  height: 10px;
+  filter: invert(100%);
+
+}
+.pcPhotoArrayButton{
+  width: 110px;
+  height: 40px;
+  background-color: transparent !important;
+  border: none;
+}
+/* Photo Array styles */
+.pcPhotoSliderCarousel{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  overflow: hidden;
+  width: 110%;
+}
+.photoArrayContainer {
+  display: flex;
+  flex-direction: row;
+  list-style-type:none;
+  justify-content: flex-start;
+  padding: 0px;
+  transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s, transform 0.3s ease-out 0s !important;
+}
+
+.photoArrayList {
+  width: 100px;
+  height: 71px;
+  margin-left: 10px;
+}
+
+
+.photoArrayItem{
+  width: 100px;
+  height: 67px;
+  filter: brightness(50%);
+}

@@ -1,5 +1,5 @@
 {
-  "name": "Proxy Server for CloudStay",
+  "name": "cloudstay_proxy_server",
   "version": "",
   "description": "",
   "author": "",
@@ -8,10 +8,22 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "startProxy": "nodemon ./server/proxyServer.js",
+    "startApart": "nodemon ./apartmentComponent/server/index.js",
+    "startPic" : "nodemon ./pictureComponents/server/expressServer.js",
+    "startInfo" : "nodemon ./infoComponent/server/index.js",
+    "startReview" : "nodemon ./reviewComponent/server/server.js",
+    "start": "npm-run-all --parallel  startApart startReview startPic startInfo startProxy"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "npm-run-all": "^4.1.5"
   }
 }
