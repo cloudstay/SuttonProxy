@@ -13,7 +13,7 @@
     "startPic" : "nodemon ./pictureComponents/server/expressServer.js",
     "startInfo" : "nodemon ./infoComponent/server/index.js",
     "startReview" : "nodemon ./reviewComponent/server/server.js",
-    "start": "npm-run-all --parallel  startApart startReview startPic startInfo startProxy"
+    "start": "npm-run-all --parallel startProxy"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
