@@ -2,12 +2,13 @@ version: "3.0"
 
 services:
   proxyserver:
-    image: suco3693/proxyserver:version2
+    build: ../
     depends_on:
       - 'piccont'
       - 'info'
       - 'listings'
       - 'review'
+      - 'bookings'
     ports:
         - '80:3000'
   piccont:
@@ -45,4 +46,12 @@ services:
     ports: 
       - '3004:3004'
   reviewdatabase: 
+    image: mongo:latest
+  bookings:
+    build: ../bookingComponent
+    depends_on: 
+      - 'bookingdatabase'
+    ports: 
+      - '3007:3007'
+  bookingdatabase: 
     image: mongo:latest

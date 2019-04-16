@@ -69,6 +69,28 @@ app.get(`/api/rooms/:id/info`, (req, response) => {
     }
   });
 });
+app.get(`/api/bookings/:room_id`, (req, response) => {
+  request(`http://info:3001/api/rooms/${req.params.id}/info`, (err, res, body)=> {
+    if(err){
+      response.status(404);
+      response.end()
+    }else {
+      response.status(200);
+      response.end(body)
+    }
+  });
+});
+app.get(`/api/bookings/:room_id`, (req, response) => {
+  request(`http://info:3007/api/rooms/${req.params.id}/info`, (err, res, body)=> {
+    if(err){
+      response.status(404);
+      response.end()
+    }else {
+      response.status(200);
+      response.end(body)
+    }
+  });
+});
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
