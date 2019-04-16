@@ -1,7 +1,6 @@
 # Project Name
 
-> Project description
-
+Current proxy branch is multiec2containers
 ## Related Projects
 
   - https://github.com/teamName/repo
