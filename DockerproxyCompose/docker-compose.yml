@@ -2,13 +2,14 @@ version: "3.0"
 
 services:
   proxyserver:
-    image: proxyserver:version3
+    image: suco3693/proxyserver:version4
     depends_on:
       - 'piccont'
       - 'info'
       - 'listings'
+      - 'listing-seed'
       - 'review'
-      - 'bookings'
+      - 'review-seed'
     ports:
         - '80:3000'
   piccont:
@@ -17,6 +18,11 @@ services:
       - 'cloudstaypicdb'
     ports:
       - '3006:3006'
+  pic-seed:
+    image: suco3693/cloudstaypicimg:version2
+    depends_on:
+      - 'cloudstaypicdb'
+    command: sh -c 'npm run seed'
   cloudstaypicdb:
     image: mongo:latest
   info:
@@ -28,7 +34,12 @@ services:
 
   infodatabase:
     image: mongo:latest
-  
+
+  info-seed:
+    image: anthonyriggi/info:v1
+    depends_on:
+      - 'infodatabase'
+    command: sh -c "npm run seed"
   listings:
     image: jmjjeena/listings:v2
     depends_on:
@@ -39,19 +50,35 @@ services:
   listingdatabase:
     image: mongo:latest
 
+  listing-seed:
+    image: jmjjeena/listings:v2
+    depends_on:
+      - 'listingdatabase'
+    command: sh -c "npm run seed"
   review:
     image: annap23/reviews:version3
-    depends_on: 
+    depends_on:
       - 'reviewdatabase'
-    ports: 
+    ports:
       - '3004:3004'
-  reviewdatabase: 
+  reviewdatabase:
     image: mongo:latest
+  review-seed:
+    image: annap23/reviews:version3
+    depends_on:
+      - 'reviewdatabase'
+      - 'review'
+    command: sh -c "npm run seed"
   bookings:
-    image: suco3693/bookingcont:latest
-    depends_on: 
+    image: suco3693/bookingcont:version2
+    depends_on:
       - 'bookingdatabase'
-    ports: 
+    ports:
       - '3007:3007'
-  bookingdatabase: 
+  bookings-seed:
+    image: suco3693/bookingcont:version2
+    depends_on:
+      - 'bookingdatabase'
+    command: sh -c 'npm run seed'
+  bookingdatabase:
     image: mongo:latest

@@ -9,6 +9,6 @@ COPY . /public/app/
 
 RUN npm install
 
-EXPOSE 3006
+EXPOSE 3007
 
 CMD ["npm", "start"]
