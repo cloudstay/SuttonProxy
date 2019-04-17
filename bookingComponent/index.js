@@ -33,9 +33,11 @@ app.use(parser.json());
 //   });
 // });
 
-app.get('/api/bookings/:room_id', (req, res) => {
+app.get('/api/bookings/:id', (req, res) => {
   // eslint-disable-next-line prefer-const
+  console.log(req.param);
   let roomId = req.params.id;
+  console.log(roomId);
   Booking.findOne({ room_id: roomId }, 'availabilityScore', (err, id) => {
     if (err) {
       console.log('issue getting info for this room id');

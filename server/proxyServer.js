@@ -81,7 +81,7 @@ app.get(`/api/bookings/:room_id`, (req, response) => {
   });
 });
 app.get(`/api/bookings/:room_id`, (req, response) => {
-  request(`http://info:3007/api/rooms/${req.params.id}/info`, (err, res, body)=> {
+  request(`http://bookings:3007/api/bookings/${req.params.id}`, (err, res, body)=> {
     if(err){
       response.status(404);
       response.end()

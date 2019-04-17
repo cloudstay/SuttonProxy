@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 const mongoose = require('mongoose');
 
-const dbURL = 'mongodb://localhost/reservations';
+const dbURL = 'mongodb://bookingdatabase/reservations';
 mongoose.connect(dbURL, { useNewUrlParser: true });
 
 const db = mongoose.connection;
