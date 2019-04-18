@@ -1,13 +1,10 @@
 # Project Name
 
 > Project description
-
+Branch to basic start up of proxy and all servers on a ec2 container (with db seeds) 
+-DockerCompose has docker-compose file to make all cotainers and a start up script
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
 
 ## Table of Contents
 
