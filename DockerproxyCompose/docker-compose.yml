@@ -2,7 +2,7 @@ version: "3.0"
 
 services:
   proxyserver:
-    build: ../
+    image: suco3693/proxyserver:version5
     depends_on:
       - 'piccont'
       - 'info'
@@ -70,13 +70,13 @@ services:
       - 'review'
     command: sh -c "npm run seed"
   bookings:
-    build: ../bookingComponent
+    image: suco3693/bookingcont:version3
     depends_on:
       - 'bookingdatabase'
     ports:
       - '3007:3007'
   bookings-seed:
-    build: ../bookingComponent
+    image: suco3693/bookingcont:version3
     depends_on:
       - 'bookingdatabase'
     command: sh -c 'npm run seed'
